@@ -8,7 +8,6 @@ import java.io.InputStreamReader;
 import java.time.Duration;
 import java.util.NoSuchElementException;
 import java.util.function.Function;
-import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
@@ -30,26 +29,8 @@ public class App {
 
   public static String projectDir = System.getProperty("user.dir");
 
-  public static void main(String[] args)
-    throws IOException, InterruptedException {
-    init();
-    WebDriver openedDriver = driverInstance();
-    openedDriver.get(
-      "https://www.selenium.dev/zh-cn/documentation/webdriver/js_alerts_prompts_and_confirmations/"
-    );
-    new WebDriverWait(openedDriver, Duration.ofSeconds(10))
-    .until(
-        ExpectedConditions.visibilityOf(
-          openedDriver.findElement(By.xpath("//a[text()='查看样例警告框']"))
-        )
-      );
-    openedDriver.findElement(By.xpath("//a[text()='查看样例警告框']")).click();
-    Alert alert = new WebDriverWait(openedDriver, Duration.ofSeconds(10))
-    .until(ExpectedConditions.alertIsPresent());
-    String text = alert.getText();
-    System.out.println(text);
-    alert.accept();
-    killProcess();
+  public static void main(String[] args) {
+    System.out.println();
   }
 
   public static WebDriver driverInstance() {

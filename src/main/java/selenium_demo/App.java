@@ -8,6 +8,7 @@ import java.io.InputStreamReader;
 import java.time.Duration;
 import java.util.NoSuchElementException;
 import java.util.function.Function;
+import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
@@ -31,18 +32,8 @@ public class App {
 
   public static void main(String[] args)
     throws IOException, InterruptedException {
-    System.setProperty(
-      "webdriver.chrome.driver",
-      "C:\\Users\\Jwei4\\Desktop\\chromedriver.exe"
-    );
-    ProcessBuilder pb = new ProcessBuilder(
-      projectDir + "\\src\\depandency\\chromeInit.bat"
-    );
-    pb.start();
-
-    ChromeOptions options = new ChromeOptions();
-    options.setExperimentalOption("debuggerAddress", "127.0.0.1:5555");
-    WebDriver openedDriver = new ChromeDriver(options);
+    init();
+    WebDriver openedDriver = driverInstance();
     openedDriver.get(
       "https://www.selenium.dev/zh-cn/documentation/webdriver/js_alerts_prompts_and_confirmations/"
     );
@@ -53,7 +44,34 @@ public class App {
         )
       );
     openedDriver.findElement(By.xpath("//a[text()='查看样例警告框']")).click();
+    Alert alert = new WebDriverWait(openedDriver, Duration.ofSeconds(10))
+    .until(ExpectedConditions.alertIsPresent());
+    String text = alert.getText();
+    System.out.println(text);
+    alert.accept();
     killProcess();
+  }
+
+  public static WebDriver driverInstance() {
+    ChromeOptions options = new ChromeOptions();
+    options.setExperimentalOption("debuggerAddress", "127.0.0.1:5555");
+    WebDriver openedDriver = new ChromeDriver(options);
+    return openedDriver;
+  }
+
+  /**
+   * start chrome dirver with port 5555 by .bat file
+   * @throws IOException
+   */
+  public static void init() throws IOException {
+    System.setProperty(
+      "webdriver.chrome.driver",
+      "C:\\Users\\Jwei4\\Desktop\\chromedriver.exe"
+    );
+    ProcessBuilder pb = new ProcessBuilder(
+      projectDir + "\\src\\depandency\\chromeInit.bat"
+    );
+    pb.start();
   }
 
   public static void killProcess() throws IOException {

@@ -29,8 +29,8 @@ public class App {
 
   public static String projectDir = System.getProperty("user.dir");
 
-  public static void main(String[] args) throws IOException {
-    WebDriver driver = new ChromeDriver();
+  public static void main(String[] args)
+    throws IOException, InterruptedException {
     System.setProperty(
       "webdriver.chrome.driver",
       "C:\\Users\\Jwei4\\Desktop\\chromedriver.exe"
@@ -46,13 +46,13 @@ public class App {
     openedDriver.get(
       "https://www.selenium.dev/zh-cn/documentation/webdriver/js_alerts_prompts_and_confirmations/"
     );
-    new WebDriverWait(driver, Duration.ofSeconds(10))
+    new WebDriverWait(openedDriver, Duration.ofSeconds(10))
     .until(
         ExpectedConditions.visibilityOf(
-          driver.findElement(By.xpath("//a[text()='查看样例警告框']"))
+          openedDriver.findElement(By.xpath("//a[text()='查看样例警告框']"))
         )
       );
-    driver.findElement(By.xpath("//a[text()='查看样例警告框']")).click();
+    openedDriver.findElement(By.xpath("//a[text()='查看样例警告框']")).click();
     killProcess();
   }
 

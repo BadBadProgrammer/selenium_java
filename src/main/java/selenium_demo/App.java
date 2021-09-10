@@ -66,7 +66,7 @@ public class App {
   public static void init() throws IOException {
     System.setProperty(
       "webdriver.chrome.driver",
-      "C:\\Users\\Jwei4\\Desktop\\chromedriver.exe"
+      projectDir + "\\src\\depandency\\chromedriver.exe"
     );
     ProcessBuilder pb = new ProcessBuilder(
       projectDir + "\\src\\depandency\\chromeInit.bat"

@@ -1,4 +1,7 @@
 <factorypath>
+    <factorypathentry kind="VARJAR" id="M2_REPO/org/testng/testng/7.4.0/testng-7.4.0.jar" enabled="true" runInBatchMode="false"/>
+    <factorypathentry kind="VARJAR" id="M2_REPO/com/beust/jcommander/1.78/jcommander-1.78.jar" enabled="true" runInBatchMode="false"/>
+    <factorypathentry kind="VARJAR" id="M2_REPO/org/webjars/jquery/3.5.1/jquery-3.5.1.jar" enabled="true" runInBatchMode="false"/>
     <factorypathentry kind="VARJAR" id="M2_REPO/org/junit/platform/junit-platform-console-standalone/1.8.0-RC1/junit-platform-console-standalone-1.8.0-RC1.jar" enabled="true" runInBatchMode="false"/>
     <factorypathentry kind="VARJAR" id="M2_REPO/org/seleniumhq/selenium/selenium-java/4.0.0-rc-1/selenium-java-4.0.0-rc-1.jar" enabled="true" runInBatchMode="false"/>
     <factorypathentry kind="VARJAR" id="M2_REPO/org/seleniumhq/selenium/selenium-api/4.0.0-rc-1/selenium-api-4.0.0-rc-1.jar" enabled="true" runInBatchMode="false"/>
@@ -11,7 +14,6 @@
     <factorypathentry kind="VARJAR" id="M2_REPO/org/seleniumhq/selenium/selenium-ie-driver/4.0.0-rc-1/selenium-ie-driver-4.0.0-rc-1.jar" enabled="true" runInBatchMode="false"/>
     <factorypathentry kind="VARJAR" id="M2_REPO/org/seleniumhq/selenium/selenium-opera-driver/4.0.0-rc-1/selenium-opera-driver-4.0.0-rc-1.jar" enabled="true" runInBatchMode="false"/>
     <factorypathentry kind="VARJAR" id="M2_REPO/org/seleniumhq/selenium/selenium-remote-driver/4.0.0-rc-1/selenium-remote-driver-4.0.0-rc-1.jar" enabled="true" runInBatchMode="false"/>
-    <factorypathentry kind="VARJAR" id="M2_REPO/com/beust/jcommander/1.81/jcommander-1.81.jar" enabled="true" runInBatchMode="false"/>
     <factorypathentry kind="VARJAR" id="M2_REPO/io/netty/netty-buffer/4.1.67.Final/netty-buffer-4.1.67.Final.jar" enabled="true" runInBatchMode="false"/>
     <factorypathentry kind="VARJAR" id="M2_REPO/io/netty/netty-codec-http/4.1.67.Final/netty-codec-http-4.1.67.Final.jar" enabled="true" runInBatchMode="false"/>
     <factorypathentry kind="VARJAR" id="M2_REPO/io/netty/netty-codec/4.1.67.Final/netty-codec-4.1.67.Final.jar" enabled="true" runInBatchMode="false"/>

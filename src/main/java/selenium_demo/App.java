@@ -6,7 +6,9 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.time.Duration;
+import java.util.List;
 import java.util.NoSuchElementException;
+import java.util.Optional;
 import java.util.function.Function;
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
@@ -16,6 +18,9 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.WindowType;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.devtools.DevTools;
+import org.openqa.selenium.devtools.v92.performance.Performance;
+import org.openqa.selenium.devtools.v92.performance.model.Metric;
 import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.FluentWait;
@@ -32,6 +37,19 @@ public class App {
 
   public static void main(String[] args)
     throws IOException, InterruptedException {
+    ChromeDriver driver = new ChromeDriver();
+    DevTools devTools = driver.getDevTools();
+    devTools.createSession();
+    devTools.send(Performance.enable(Optional.empty()));
+    List<Metric> metricList = devTools.send(Performance.getMetrics());
+    driver.get("http://google.com");
+    driver.quit();
+    for (Metric m : metricList) {
+      System.out.println(m.getName() + " - " + m.getValue());
+    }
+  }
+
+  public static void step2() throws IOException {
     init();
     WebDriver openedDriver = driverInstance();
     openedDriver.get(
@@ -49,7 +67,7 @@ public class App {
     String text = alert.getText();
     System.out.println(text);
     alert.accept();
-    killProcess();
+    openedDriver.quit();
   }
 
   public static WebDriver driverInstance() {

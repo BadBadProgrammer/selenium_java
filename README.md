@@ -21,3 +21,6 @@ selenium, maven, chrome driver
 | windowTypes      	|  list of strings 	|          	| A list of window types that will appear in the list of window handles. For access to <webview> elements, include "webview" in this list.                                                                                                                                                                                          	|
 
 See more chrome driver options at https://sites.google.com/a/chromium.org/chromedriver/capabilities
+
+
+Chrome DevTool Protocol:https://chromedevtools.github.io/devtools-protocol/tot/Page/
